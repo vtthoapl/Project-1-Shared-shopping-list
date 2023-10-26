@@ -1,0 +1,22 @@
+<h1><%= it.list.name %></h1>
+<form method = "POST" action="/lists/<%= it.list.id %>/items">
+Name: <input type = "text" name = "name" />
+<input type="submit" value="Add item" />
+</form>
+
+<ul>
+<% it.itemInsideList && it.itemInsideList.forEach((item) => { %>
+<li><%= item.name %> 
+<form method="POST" action="/lists/<%= it.list.id %>/items/<%= item.id%>/collect" style="display: inline;"> 
+<input type="submit" value="Mark collected!">
+</form>
+</li>
+<%});%>
+</ul>
+
+<ul>
+ <% it.collectedItems && it.collectedItems.forEach((item) => { %>
+ <li><del><%= item.name %></del></li>
+ <% }) %>
+</ul>
+<a href="/lists">Shopping lists</a>

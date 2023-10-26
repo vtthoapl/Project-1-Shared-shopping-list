@@ -1,0 +1,18 @@
+
+<h4>Add a new shopping list</h4>
+<form method = "POST" action= "/lists">
+Name: <input type = "text" name = "name" />
+<input type="submit" value="Add list" />
+</form>
+
+<h4>Shopping lists </h4>
+<ul>
+<% it.lists.forEach((list) => { %>
+<li> <a href="/lists/<%= list.id %>"> <%= list.name %> </a>
+<form method="POST" action="/lists/<%= list.id %>/deactivate">
+<input type="submit" value="Deactivate list!">
+</form>
+</li>
+<%});%>
+</ul>
+<a href="/">Main page</a>
