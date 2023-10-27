@@ -15,4 +15,4 @@ Name: <input type = "text" name = "name" />
 </li>
 <%});%>
 </ul>
-<a href="/">Main page</a>
+<h4><a href="/">Main page</a></h4>

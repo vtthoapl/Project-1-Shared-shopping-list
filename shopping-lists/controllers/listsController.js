@@ -35,6 +35,8 @@ const viewMain = async () => {
     countShoppingList: await listsServices.countMainPage(),
     countShoppingListItems: await singleListServices.countShoppingListItems()
   };
+  console.log("<<<<<", data.countShoppingList)
+  
   return new Response(await renderFile('mainpage.eta', data), responseDetails);
 };
 
