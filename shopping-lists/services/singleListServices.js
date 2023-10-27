@@ -27,11 +27,11 @@ const getAllCollectedItems = async(itemId) => {
 const markCollectedValue = async(id) => {
     return await sql`UPDATE shopping_list_items SET collected = true WHERE id = ${id}`
 }
-
+//Counting for statistic
 const countShoppingListItems = async() => {
     const rows = await sql`SELECT COUNT(*) FROM shopping_list_items`
     if (rows && rows.length > 0) {
-        return rows[0].count
+        return +rows[0].count
         //?  COUNT(*) is default as rows[0].count if want to take the value from rows[0]
     }
     return false

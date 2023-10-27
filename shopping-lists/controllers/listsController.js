@@ -1,6 +1,6 @@
 import { renderFile } from 'https://deno.land/x/eta@v2.2.0/mod.ts';
 import * as listsServices from '../services/listsServices.js';
-import * as singleListServices from '../services/singleListServices.js'
+import * as singleListServices from '../services/singleListServices.js';
 import * as requestUtils from '../utils/requestUtils.js';
 
 const responseDetails = {
@@ -21,23 +21,19 @@ const addItem = async (request) => {
   return requestUtils.redirectTo('/lists');
 };
 
-
 const viewAllList = async () => {
   const data = {
     lists: await listsServices.findActiveShoppingLists(),
   };
-
   return new Response(await renderFile('lists.eta', data), responseDetails);
 };
-
-const viewMain = async () => {
+/* list and statistic for mainpage */
+const viewMainPage = async () => {
   const data = {
-    countShoppingList: await listsServices.countMainPage(),
-    countShoppingListItems: await singleListServices.countShoppingListItems()
+    countShoppingList: await listsServices.countShoppingList(),
+    countShoppingListItems: await singleListServices.countShoppingListItems(),
   };
-  console.log("<<<<<", data.countShoppingList)
-  
   return new Response(await renderFile('mainpage.eta', data), responseDetails);
 };
 
-export { addItem, viewAllList, viewMain, deactiveList };
+export { addItem, viewAllList, viewMainPage, deactiveList };

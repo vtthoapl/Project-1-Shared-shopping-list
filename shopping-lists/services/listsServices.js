@@ -20,12 +20,13 @@ const findActiveShoppingLists = async () => {
     return await sql`SELECT * FROM shopping_lists WHERE active = true`
 }
 
-const  countMainPage = async() => {
+/* Statistic for main page */
+const  countShoppingList = async() => {
     const rows = await sql`SELECT COUNT (*) FROM shopping_lists `
     if(rows && rows.length > 0) {
-        return rows[0].count
-        /* //? mac dinh laf .count neu muon lay value ben trong object */
+        return +rows[0].count
+        /* //? mac dinh la .count neu muon lay value ben trong object */
     }
     return false
-}
-export { create, findCurrentList, findActiveShoppingLists, deactiveList, countMainPage}
+} 
+export { create, findCurrentList, findActiveShoppingLists, deactiveList, countShoppingList}

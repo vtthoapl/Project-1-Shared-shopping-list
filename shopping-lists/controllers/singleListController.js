@@ -29,7 +29,7 @@ const createNewItem = async (request) => {
   const formData = await request.formData();
   const name = formData.get('name');
   await singleListServices.createItem(urlParts[2], name);
-  return requestUtils.redirectTo(`/lists/${urlParts[2]}/items`);
+  return requestUtils.redirectTo(`/lists/${urlParts[2]}`);
 };
 
 const markCollectedValue = async (request) => {
