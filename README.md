@@ -10,4 +10,4 @@ the web architecture - shopping-lists folder:
 views -> app.js -> controllers -> services
 
 Testing: end-to-end test using playwright. to run the test using these under command:
-"docker-compose run --entrypoint=npx e2e-playwright playwright test && docker-compose rm -sf"
+docker-compose run --entrypoint=npx e2e-playwright playwright test && docker-compose rm -sf

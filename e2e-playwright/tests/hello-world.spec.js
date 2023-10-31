@@ -28,7 +28,7 @@ test("4, the lists.eta has an a 'Input with value = add list'", async ({
   await expect(page.locator(`a >> text='${taskName}'`)).toHaveText(taskName);
 });
 test('Can deactivate a shopping list', async ({ page }) => {
-  const name = 'My first list';
+  const name = 'Deactive button';
   await page.goto('/lists');
   await page.click('input[value = "Deactivate list!"]');
   await expect(page.locator(`a >> text='${name}'`)).not.toBeVisible();
